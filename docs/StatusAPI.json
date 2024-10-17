@@ -1,0 +1,67 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "StatusAPI",
+    "version": "v0.0.0"
+  },
+  "host": "localhost:8080",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/auth",
+  "paths": {
+    "/register": {
+      "post": {
+        "summary": "[AUTH] Register",
+        "description": "Register an account via the API",
+        "operationId": "54ee8d00-be90-431c-b33c-adbc299338af",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"username\":\"test_username\",\"password\":\"test_password\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "[AUTH] Login",
+        "description": "Login to an account via the API",
+        "operationId": "de254b58-36d9-46dd-b21e-c4045e58cb1e",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"username\":\"test_username\",\"password\":\"test_password\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
