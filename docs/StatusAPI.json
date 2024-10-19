@@ -8,13 +8,145 @@
   "schemes": [
     "http"
   ],
-  "basePath": "/auth",
+  "basePath": "/",
   "paths": {
-    "/register": {
+    "/data/request/45afdc62-41da-4587-9f2c-5c0420fbc692": {
+      "get": {
+        "summary": "Get Request Data",
+        "description": "Gets all of the influxdb data corresponding to a request corresponding to the setup bucket",
+        "operationId": "cf726d14-b880-433e-973d-f7aaea0fd442",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "12h",
+            "name": "t",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/data/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f": {
+      "get": {
+        "summary": "Get Project Data",
+        "description": "Gets all of the influxdb data attached to a projects requests corresponding to the setup bucket",
+        "operationId": "076abfdf-b8cc-4d65-b79d-8a3c950863cc",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "12h",
+            "name": "t",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/data/all": {
+      "get": {
+        "summary": "Get All Data",
+        "description": "Gets all of the influxdb data corresponding to the setup bucket",
+        "operationId": "7963bd6b-ceb2-44f5-a6e0-8ed9dc8f414b",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "12h",
+            "name": "t",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/project/": {
+      "get": {
+        "summary": "Ping Projects",
+        "description": "",
+        "operationId": "10711267-f026-4734-ac5b-5ad64954aa5d",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f": {
+      "get": {
+        "summary": "Get Project",
+        "description": "Gets a project",
+        "operationId": "aee12ec1-697f-4e6b-9b2d-271e98d6ca54",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/project/all": {
+      "get": {
+        "summary": "Get Project List",
+        "description": "Gets all of the projects",
+        "operationId": "b799cddf-c0ac-4b52-b75e-6940dcbfe170",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/project/new": {
       "post": {
-        "summary": "[AUTH] Register",
-        "description": "Register an account via the API",
-        "operationId": "54ee8d00-be90-431c-b33c-adbc299338af",
+        "summary": "New Project",
+        "description": "Creates a new project",
+        "operationId": "522e737c-2946-4ceb-b65d-6e1ee1871919",
         "consumes": [
           "application/json"
         ],
@@ -23,7 +155,271 @@
             "required": false,
             "schema": {
               "type": "string",
-              "default": "{\"username\":\"test_username\",\"password\":\"test_password\"}"
+              "default": "{\"name\":\"test_project\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/project/cbfc4d92-85cd-4cc6-8f38-2cb138724b45": {
+      "delete": {
+        "summary": "Delete Project",
+        "description": "Delete's a project",
+        "operationId": "c0eec30f-c39a-4638-a8a4-70bf48d6a59e",
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ],
+        "parameters": []
+      }
+    },
+    "/request/": {
+      "get": {
+        "summary": "Ping Requests",
+        "description": "",
+        "operationId": "93ca2bf3-0aca-4560-a3cc-fe6515016162",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/request/45afdc62-41da-4587-9f2c-5c0420fbc692": {
+      "get": {
+        "summary": "Get Request",
+        "description": "",
+        "operationId": "645bd331-d617-46bc-8829-61bda8407c99",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update Request",
+        "description": "Updates a request",
+        "operationId": "78c7673e-aa3d-40d9-b57c-4e22a1c664c2",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/request/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f": {
+      "get": {
+        "summary": "Get Requests from Project",
+        "description": "Gets all Requests from a Project",
+        "operationId": "0a301a3a-57f6-4297-9f8c-d275e14ea402",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/request/all": {
+      "get": {
+        "summary": "Get Request List",
+        "description": "",
+        "operationId": "e9585210-0fc5-4e26-9689-ee5eb19f28d5",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/request/new": {
+      "post": {
+        "summary": "New Request",
+        "description": "Creates a new request, refreshes the request list",
+        "operationId": "ea62ebf6-e162-4aaa-b4d7-36f89cfdb228",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/request/3d6d45ae-3c36-44da-87b2-28fb1f6ccef3": {
+      "delete": {
+        "summary": "Delete Request",
+        "description": "",
+        "operationId": "561fe662-28c0-404c-9c9c-feb3dd4d2b89",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Register",
+        "description": "Register an account via the API",
+        "operationId": "54ee8d00-be90-431c-b33c-adbc299338af",
+        "consumes": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "{\n  \"username\": \"test_username\",\n  \"password\": \"test_password\"\n}"
             },
             "in": "body",
             "name": "body"
@@ -36,9 +432,9 @@
         }
       }
     },
-    "/login": {
+    "/auth/login": {
       "post": {
-        "summary": "[AUTH] Login",
+        "summary": "Login",
         "description": "Login to an account via the API",
         "operationId": "de254b58-36d9-46dd-b21e-c4045e58cb1e",
         "consumes": [
@@ -61,6 +457,12 @@
           }
         }
       }
+    }
+  },
+  "securityDefinitions": {
+    "oauth_2_auth": {
+      "type": "oauth2",
+      "scopes": {}
     }
   },
   "tags": []

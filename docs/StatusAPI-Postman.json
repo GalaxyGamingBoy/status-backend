@@ -1,0 +1,755 @@
+{
+  "info": {
+    "name": "StatusAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "DATA",
+      "item": [
+        {
+          "name": "Get Request Data",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/data/request/45afdc62-41da-4587-9f2c-5c0420fbc692?t=12h",
+              "query": [
+                {
+                  "key": "t",
+                  "value": "12h",
+                  "disabled": false,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/data/request/45afdc62-41da-4587-9f2c-5c0420fbc692"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Gets all of the influxdb data corresponding to a request corresponding to the setup bucket",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": null,
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Get Project Data",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/data/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f?t=12h",
+              "query": [
+                {
+                  "key": "t",
+                  "value": "12h",
+                  "disabled": false,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/data/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Gets all of the influxdb data attached to a projects requests corresponding to the setup bucket",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": null,
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Data",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/data/all?t=12h",
+              "query": [
+                {
+                  "key": "t",
+                  "value": "12h",
+                  "disabled": false,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/data/all"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Gets all of the influxdb data corresponding to the setup bucket",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": null,
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": null,
+      "response": []
+    },
+    {
+      "name": "PROJECT",
+      "item": [
+        {
+          "name": "Ping Projects",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/project/",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/project/"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": null,
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Get Project",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f",
+              "query": null,
+              "protocol": null,
+              "host": [
+                "{{URL}}/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Gets a project",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": null,
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Get Project List",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/project/all",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/project/all"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Gets all of the projects",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": null,
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "New Project",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{URL}}/project/new",
+              "query": null,
+              "protocol": null,
+              "host": [
+                "{{URL}}/project/new"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Creates a new project",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"test_project\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{URL}}/project/cbfc4d92-85cd-4cc6-8f38-2cb138724b45",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/project/cbfc4d92-85cd-4cc6-8f38-2cb138724b45"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Delete's a project",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": null,
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": null,
+      "response": []
+    },
+    {
+      "name": "REQUEST",
+      "item": [
+        {
+          "name": "Ping Requests",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/request/",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/request/"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Get Request",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/request/45afdc62-41da-4587-9f2c-5c0420fbc692",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/request/45afdc62-41da-4587-9f2c-5c0420fbc692"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Get Requests from Project",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/request/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/request/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Gets all Requests from a Project",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Get Request List",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{URL}}/request/all",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/request/all"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{URL}}/request/new",
+              "query": null,
+              "protocol": null,
+              "host": [
+                "{{URL}}/request/new"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Creates a new request, refreshes the request list",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Update Request",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{URL}}/request/45afdc62-41da-4587-9f2c-5c0420fbc692",
+              "query": null,
+              "protocol": null,
+              "host": [
+                "{{URL}}/request/45afdc62-41da-4587-9f2c-5c0420fbc692"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Updates a request",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Request",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{URL}}/request/3d6d45ae-3c36-44da-87b2-28fb1f6ccef3",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true,
+                  "description": null
+                }
+              ],
+              "protocol": null,
+              "host": [
+                "{{URL}}/request/3d6d45ae-3c36-44da-87b2-28fb1f6ccef3"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"name\":\"Test\",\"uri\":\"https://google.com\",\"code\":\"200\",\"interval\":\"60\",\"project\":\"eb4642c4-3146-45b9-961f-b7b66ef3bb0f\",\"method\":\"GET\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": null,
+      "response": []
+    },
+    {
+      "name": "AUTH",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{URL}}/auth/register",
+              "query": null,
+              "protocol": null,
+              "host": [
+                "{{URL}}/auth/register"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Register an account via the API",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\n  \"username\": \"test_username\",\n  \"password\": \"test_password\"\n}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{URL}}/auth/login",
+              "query": null,
+              "protocol": null,
+              "host": [
+                "{{URL}}/auth/login"
+              ],
+              "port": null,
+              "path": null
+            },
+            "description": "Login to an account via the API",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "description": null
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false,
+              "raw": "{\"username\":\"test_username\",\"password\":\"test_password\"}"
+            },
+            "auth": null
+          },
+          "protocolProfileBehavior": {
+            "followRedirects": false,
+            "followOriginalHttpMethod": false,
+            "followAuthorizationHeader": false
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": null,
+      "response": []
+    }
+  ]
+}
