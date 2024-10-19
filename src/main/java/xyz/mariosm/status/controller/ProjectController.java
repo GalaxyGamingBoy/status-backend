@@ -17,9 +17,7 @@ import xyz.mariosm.status.data.User;
 import xyz.mariosm.status.http.ProjectPayload;
 import xyz.mariosm.status.service.ProjectService;
 
-import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -40,7 +38,8 @@ public class ProjectController {
 
     @GetMapping(path = "/")
     public Links root() {
-        return Links.of(linkTo(methodOn(ProjectController.class).all(0)).withRel("all"),
+        return Links.of(linkTo(methodOn(ProjectController.class).root()).withSelfRel(),
+                        linkTo(methodOn(ProjectController.class).all(0)).withRel("all"),
                         linkTo(methodOn(ProjectController.class).newProject(null)).withRel("new"));
     }
 
@@ -57,22 +56,7 @@ public class ProjectController {
     public CollectionModel<EntityModel<Project>> all(@RequestParam(name = "page", defaultValue = "0") int page) {
         Page<Project> projects = projectService.all(page, 6);
 
-        CollectionModel<EntityModel<Project>> model = CollectionModel.of(
-            projects.stream().map(assembler::toModel).collect(Collectors.toList()),
-            linkTo(methodOn(ProjectController.class).all(page)).withSelfRel(),
-            linkTo(methodOn(ProjectController.class).all(0)).withRel("pageFirst"),
-            linkTo(methodOn(ProjectController.class).all(projects.getTotalPages() - 1)).withRel("pageLast")
-                                 );
-
-        if (projects.hasNext()) {
-            model.add(linkTo(methodOn(ProjectController.class).all(page + 1)).withRel("pageNext"));
-        }
-
-        if (projects.hasPrevious()) {
-            model.add(linkTo(methodOn(ProjectController.class).all(page - 1)).withRel("pagePrev"));
-        }
-
-        return model;
+        return assembler.toCollectionModel(projects, page);
     }
 
     @GetMapping(path = "/{id}")
