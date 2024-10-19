@@ -2,6 +2,7 @@ package xyz.mariosm.status.service.impl;
 
 import com.influxdb.client.InfluxDBClient;
 import com.influxdb.client.InfluxDBClientFactory;
+import com.influxdb.client.QueryApi;
 import com.influxdb.client.WriteApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,5 +22,10 @@ public class InfluxServiceImpl implements InfluxService {
     @Override
     public WriteApi getWriteApi() {
         return this.client.makeWriteApi();
+    }
+
+    @Override
+    public QueryApi getQueryApi() {
+        return this.client.getQueryApi();
     }
 }
