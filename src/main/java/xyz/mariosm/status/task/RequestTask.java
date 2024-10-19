@@ -24,6 +24,8 @@ public class RequestTask implements Runnable {
                                           .method(request.getMethod(), null)
                                           .build();
         this.influx = influx;
+
+        log.info("Registering Request Task, {}", request.getName());
     }
 
     @Override
@@ -34,15 +36,15 @@ public class RequestTask implements Runnable {
             Long responseTime = response.receivedResponseAtMillis() - response.sentRequestAtMillis();
             Integer status = response.code();
 
-            if (status.equals(this.source.getStatusCode())) {
-                log.info("{}, Status: {} (RESP: {})", this.source.getName(), status, responseTime);
+            if (status.equals(this.source.getCode())) {
+                log.info("{}, Status: {} (Time: {})", this.source.getName(), status, responseTime);
             } else {
                 log.info("{}, Status: {}", this.source.getName(), status);
             }
 
             this.influx.writePoint(Point.measurement(this.source.getId().toString())
                                         .addTag("code", String.valueOf(status))
-                                        .addTag("ok", String.valueOf(status.equals(this.source.getStatusCode())))
+                                        .addTag("ok", String.valueOf(status.equals(this.source.getCode())))
                                         .addField("response", responseTime));
         } catch (IOException e) {
             log.error(e);
