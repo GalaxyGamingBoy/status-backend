@@ -31,6 +31,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("com.influxdb:influxdb-client-java:6.9.0")
 	implementation("io.jsonwebtoken:jjwt-api:0.12.6")
 	implementation("com.squareup.okhttp3:okhttp:4.12.0")
