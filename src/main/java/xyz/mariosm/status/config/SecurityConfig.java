@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -37,6 +38,9 @@ public class SecurityConfig {
                                        matcherRegistry.requestMatchers("/").permitAll()
                                                       .requestMatchers("/error").permitAll()
                                                       .requestMatchers("/auth/**").permitAll()
+                                                      .requestMatchers(HttpMethod.GET, "/data/**").permitAll()
+                                                      .requestMatchers(HttpMethod.GET, "/project/**").permitAll()
+                                                      .requestMatchers(HttpMethod.GET, "/request/**").permitAll()
                                                       .anyRequest().authenticated())
             .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authenticationProvider(authenticationProvider())

@@ -28,12 +28,7 @@
           "default": {
             "description": "no response description was provided for this operation"
           }
-        },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ]
+        }
       }
     },
     "/data/project/eb4642c4-3146-45b9-961f-b7b66ef3bb0f": {
@@ -54,12 +49,7 @@
           "default": {
             "description": "no response description was provided for this operation"
           }
-        },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ]
+        }
       }
     },
     "/data/all": {
@@ -80,12 +70,7 @@
           "default": {
             "description": "no response description was provided for this operation"
           }
-        },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ]
+        }
       }
     },
     "/project/": {
@@ -98,11 +83,6 @@
             "description": "no response description was provided for this operation"
           }
         },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ],
         "parameters": []
       }
     },
@@ -116,11 +96,6 @@
             "description": "no response description was provided for this operation"
           }
         },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ],
         "parameters": []
       }
     },
@@ -134,11 +109,6 @@
             "description": "no response description was provided for this operation"
           }
         },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ],
         "parameters": []
       }
     },
@@ -214,12 +184,7 @@
           "default": {
             "description": "no response description was provided for this operation"
           }
-        },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ]
+        }
       }
     },
     "/request/45afdc62-41da-4587-9f2c-5c0420fbc692": {
@@ -245,12 +210,7 @@
           "default": {
             "description": "no response description was provided for this operation"
           }
-        },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ]
+        }
       },
       "put": {
         "summary": "Update Request",
@@ -305,12 +265,7 @@
           "default": {
             "description": "no response description was provided for this operation"
           }
-        },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ]
+        }
       }
     },
     "/request/all": {
@@ -336,12 +291,7 @@
           "default": {
             "description": "no response description was provided for this operation"
           }
-        },
-        "security": [
-          {
-            "oauth_2_auth": []
-          }
-        ]
+        }
       }
     },
     "/request/new": {

@@ -29,14 +29,7 @@
               "path": null
             },
             "description": "Gets all of the influxdb data corresponding to a request corresponding to the setup bucket",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
-              }
-            ],
+            "header": [],
             "body": null,
             "auth": null
           },
@@ -69,14 +62,7 @@
               "path": null
             },
             "description": "Gets all of the influxdb data attached to a projects requests corresponding to the setup bucket",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
-              }
-            ],
+            "header": [],
             "body": null,
             "auth": null
           },
@@ -109,14 +95,7 @@
               "path": null
             },
             "description": "Gets all of the influxdb data corresponding to the setup bucket",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
-              }
-            ],
+            "header": [],
             "body": null,
             "auth": null
           },
@@ -156,14 +135,7 @@
               "path": null
             },
             "description": "",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
-              }
-            ],
+            "header": [],
             "body": null,
             "auth": null
           },
@@ -189,14 +161,7 @@
               "path": null
             },
             "description": "Gets a project",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
-              }
-            ],
+            "header": [],
             "body": null,
             "auth": null
           },
@@ -229,14 +194,7 @@
               "path": null
             },
             "description": "Gets all of the projects",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
-              }
-            ],
+            "header": [],
             "body": null,
             "auth": null
           },
@@ -365,12 +323,6 @@
                 "value": "application/json",
                 "disabled": false,
                 "description": null
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
               }
             ],
             "body": {
@@ -413,12 +365,6 @@
               {
                 "key": "Content-Type",
                 "value": "application/json",
-                "disabled": false,
-                "description": null
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
                 "disabled": false,
                 "description": null
               }
@@ -465,12 +411,6 @@
                 "value": "application/json",
                 "disabled": false,
                 "description": null
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
-                "disabled": false,
-                "description": null
               }
             ],
             "body": {
@@ -513,12 +453,6 @@
               {
                 "key": "Content-Type",
                 "value": "application/json",
-                "disabled": false,
-                "description": null
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{TOKEN}}",
                 "disabled": false,
                 "description": null
               }
