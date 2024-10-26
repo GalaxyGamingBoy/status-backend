@@ -8,6 +8,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
+import xyz.mariosm.status.controller.DataController;
 import xyz.mariosm.status.controller.ProjectController;
 import xyz.mariosm.status.controller.RequestController;
 import xyz.mariosm.status.data.Request;
@@ -32,7 +33,8 @@ public class RequestModelAssembler implements
                                                                                    entity.getId(), null)))
                                                                                .andAffordance(afford(methodOn(
                                                                                    RequestController.class).delete(
-                                                                                   entity.getId()))));
+                                                                                   entity.getId()))),
+                  linkTo(methodOn(DataController.class).one(entity.getId(), null)).withRel("data"));
 
         return model;
     }

@@ -6,8 +6,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
 import org.springframework.web.bind.annotation.*;
 import xyz.mariosm.status.assemblers.DataModelAssembler;
+import xyz.mariosm.status.data.Project;
 import xyz.mariosm.status.data.Request;
 import xyz.mariosm.status.repository.RequestRepository;
 import xyz.mariosm.status.service.DataService;
@@ -41,8 +43,13 @@ public class DataController {
     private final DataModelAssembler assembler;
 
     @GetMapping(path = "/")
-    public String root() {
-        return "hi";
+    public List<Link> root() {
+        return List.of(
+            linkTo(methodOn(DataController.class).root()).withSelfRel(),
+            linkTo(methodOn(DataController.class).all(null)).withRel("all"),
+            linkTo(methodOn(DataController.class).allFromProject(null, null)).withRel("project"),
+            linkTo(methodOn(DataController.class).one(null, null)).withRel("request")
+                      );
     }
 
     @GetMapping(path = "/all")
@@ -64,7 +71,8 @@ public class DataController {
     public CollectionModel<EntityModel<FluxTable>> allFromProject(@PathVariable UUID id,
                                                                   @RequestParam(name = "t", defaultValue = "12h",
                                                                       required = false) String time) {
-        List<Request> requests = this.requestRepository.findAllByProject(this.projectService.fetch(id));
+        Project project = this.projectService.fetch(id);
+        List<Request> requests = this.requestRepository.findAllByProject(project);
         List<EntityModel<FluxTable>> data =
             requests.stream().map((request) ->
                                       this.assembler.toModel(this.dataService.fetchRequest(request, time), request, time)
@@ -72,6 +80,7 @@ public class DataController {
 
         return CollectionModel.of(data,
                                   linkTo(methodOn(DataController.class).allFromProject(id, time)).withSelfRel(),
-                                  linkTo(methodOn(DataController.class).all(time)).withRel("allData"));
+                                  linkTo(methodOn(DataController.class).all(time)).withRel("allData"),
+                                  linkTo(methodOn(ProjectController.class).one(project.getId())).withRel("project"));
     }
 }

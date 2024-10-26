@@ -6,6 +6,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
+import xyz.mariosm.status.controller.DataController;
 import xyz.mariosm.status.controller.ProjectController;
 import xyz.mariosm.status.data.Project;
 
@@ -20,7 +21,8 @@ public class ProjectModelAssembler implements RepresentationModelAssembler<Proje
             EntityModel.of(entity,
                            linkTo(methodOn(ProjectController.class).one(entity.getId())).withSelfRel()
                                .andAffordance(afford(methodOn(ProjectController.class).delete(entity.getId()))),
-                           linkTo(methodOn(ProjectController.class).all(0)).withRel("projects"));
+                           linkTo(methodOn(ProjectController.class).all(0)).withRel("projects"),
+                           linkTo(methodOn(DataController.class).allFromProject(entity.getId(), null)).withRel("data"));
         return model;
     }
 
