@@ -2,6 +2,7 @@ package xyz.mariosm.status.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.Link;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping(path = "/")
 @RequiredArgsConstructor
 public class RootController {
+    @GetMapping(path = "/")
     List<Link> root() {
         return List.of(
             linkTo(methodOn(RootController.class).root()).withSelfRel(),
