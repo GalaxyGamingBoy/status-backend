@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfigurationSource;
 import xyz.mariosm.status.security.JwtFilter;
 import xyz.mariosm.status.service.impl.UserDetailsService;
 
@@ -30,10 +31,13 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     @Autowired
     private final JwtFilter jwtFilter;
+    @Autowired
+    private final CorsConfig corsConfigurationSource;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
+        http.csrf(AbstractHttpConfigurer::disable)
+            .cors(cors -> cors.configurationSource(corsConfigurationSource))
             .authorizeHttpRequests(matcherRegistry ->
                                        matcherRegistry.requestMatchers("/").permitAll()
                                                       .requestMatchers("/error").permitAll()
@@ -63,7 +67,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+    protected AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
 }
