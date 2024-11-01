@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.Links;
 import org.springframework.web.bind.annotation.*;
 import xyz.mariosm.status.data.User;
 import xyz.mariosm.status.http.UserPayload;
@@ -25,12 +26,12 @@ public class AuthController {
     private final AuthService authService;
 
     @GetMapping(path = "/")
-    List<Link> root() {
-        return List.of(
+    Links root() {
+        return Links.of(
             linkTo(methodOn(AuthController.class).root()).withSelfRel(),
             linkTo(methodOn(AuthController.class).login(null)).withRel("login"),
             linkTo(methodOn(AuthController.class).register(null)).withRel("register")
-                      );
+                       );
     }
 
     @PostMapping(path = "/register")

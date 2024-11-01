@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.Links;
 import org.springframework.web.bind.annotation.*;
 import xyz.mariosm.status.assemblers.DataModelAssembler;
 import xyz.mariosm.status.data.Project;
@@ -43,13 +44,13 @@ public class DataController {
     private final DataModelAssembler assembler;
 
     @GetMapping(path = "/")
-    public List<Link> root() {
-        return List.of(
+    public Links root() {
+        return Links.of(
             linkTo(methodOn(DataController.class).root()).withSelfRel(),
             linkTo(methodOn(DataController.class).all(null)).withRel("all"),
             linkTo(methodOn(DataController.class).allFromProject(null, null)).withRel("project"),
             linkTo(methodOn(DataController.class).one(null, null)).withRel("request")
-                      );
+                       );
     }
 
     @GetMapping(path = "/all")
