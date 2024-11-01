@@ -31,13 +31,11 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     @Autowired
     private final JwtFilter jwtFilter;
-    @Autowired
-    private final CorsConfig corsConfigurationSource;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
-            .cors(cors -> cors.configurationSource(corsConfigurationSource))
+            .cors(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(matcherRegistry ->
                                        matcherRegistry.requestMatchers("/").permitAll()
                                                       .requestMatchers("/error").permitAll()
