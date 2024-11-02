@@ -1,9 +1,11 @@
 plugins {
 	java
-  war
+  	war
 	id("org.springframework.boot") version "3.3.4"
 	id("io.spring.dependency-management") version "1.1.6"
 	id("org.asciidoctor.jvm.convert") version "3.3.2"
+	id("com.gorylenko.gradle-git-properties") version "2.4.1"
+	id("org.cyclonedx.bom") version "1.8.2"
 }
 
 group = "xyz.mariosm"
@@ -33,6 +35,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("com.influxdb:influxdb-client-java:6.9.0")
 	implementation("io.jsonwebtoken:jjwt-api:0.12.6")
 	implementation("com.squareup.okhttp3:okhttp:4.12.0")
@@ -49,6 +52,10 @@ dependencies {
 	testImplementation("org.springframework.security:spring-security-test")
 
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+springBoot {
+	buildInfo()
 }
 
 tasks.withType<Test> {
