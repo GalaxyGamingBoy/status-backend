@@ -18,7 +18,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfigurationSource;
 import xyz.mariosm.status.security.JwtFilter;
 import xyz.mariosm.status.service.impl.UserDetailsService;
 
@@ -44,6 +43,9 @@ public class SecurityConfig {
                                                       .requestMatchers(HttpMethod.GET, "/project/**").permitAll()
                                                       .requestMatchers(HttpMethod.GET, "/request/**").permitAll()
                                                       .requestMatchers("/actuator/**").permitAll()
+                                                      .requestMatchers(
+                                                          "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**"
+                                                                      ).permitAll()
                                                       .anyRequest().authenticated())
             .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authenticationProvider(authenticationProvider())

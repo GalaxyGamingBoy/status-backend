@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "xyz.mariosm"
-version = "1.1.0"
+version = "1.1.1"
 
 java {
 	toolchain {
@@ -36,6 +36,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
 	implementation("com.influxdb:influxdb-client-java:6.9.0")
 	implementation("io.jsonwebtoken:jjwt-api:0.12.6")
 	implementation("com.squareup.okhttp3:okhttp:4.12.0")
